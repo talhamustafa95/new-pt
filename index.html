@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API Page</title>
+    <script>
+        // Function to make the API request
+        function callAPI1() {
+            fetch('https://nghttp2.org/httpbin/get', {
+                    method: 'GET',
+                    headers: {
+                        'X-Web-User-Auth': 'sdfsdf1111',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('apiResponse').innerText = JSON.stringify(data, null, 2);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>API Call Test 1</h1>
+    <button onclick="callAPI1()">Call API 1</button>
+    <pre id="apiResponse"></pre>
+    <br /> <br /> <br /> <br />
+</body>
+
+</html>
